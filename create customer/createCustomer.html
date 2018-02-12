@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="javascript.js"></script>
+    <script>
+      $(document).ready(function(){
+      $('#mytable').DataTable();
+  });
+    </script>
+
+   
+    <script src="style.js"></script>
+    <title>Customer list</title>
+</head>
+<body  >
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">BUI Tool</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Product</a></li>
+            <li><a href="#">Vendor</a></li>
+            <li><a href="#">Customer</a></li>
+            <li><a href="#">Adminstration</a></li>
+          </ul>
+          <form class="navbar-form navbar-left" action="/action_page.php">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search" name="search">
+              <div class="input-group-btn">
+                <button class="btn btn-default" type="submit">
+                  <i class="glyphicon glyphicon-search"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </nav>
+
+<div class="container" id="">
+    <div class="panel-group">
+        <div class="panel panel-default">
+          <div class="panel-heading">Customer Control Panel</div>
+          <div class="panel-body">
+              <button style=" margin-bottom:50px" class="btn pull-right btn-success "  type="button" id=""  data-title="Edit" data-toggle="modal" data-target="#createCustomer" >Create a new Customer</button>
+          </div>
+        </div>
+        
+      </div>
+    
+	<div class="row">
+		
+   
+        
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table id="mytable"  class="table table-striped table-bordered table-hover table-condensed">
+                   
+          <thead>
+            <th class="col-md-1">#</th>
+            <th class="col-md-3">Customer Name</th>
+            <th class="col-md-2.5">Union</th>
+            <th class="col-md-1.5">Total Purchase(TK)</th>
+            <th class="col-md-1">Balance(TK)</th>
+            <th class="col-md-1">Details</th>
+            <th class="col-md-1">Edit</th>
+            <th class="col-md-1">Delete</th>
+          </thead>
+           
+          <tbody>
+            <tr >
+              <td >1</td>
+              <td onclick="details()">Raqibul Hasan Real</td>
+              <td >Rowmari</td>  
+              <td >1234</td>
+              <td >1234</td>
+              <td ><p  data-placement="top" data-toggle="tooltip" title="details"><button class="btn btn-primary btn-xs"  data-title="details" data-toggle="modal" data-target="#details" ><span class="glyphicon glyphicon-user"></span></button></p></td>
+              <td ><p data-placement="top" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" id="EditButton" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p></td>
+              <td ><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs"id="DeleteButton"  data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p></td>
+            </tr>   
+        </tbody>
+        
+      </table>         
+      </div>
+    </div>
+	</div>
+</div>
+
+  <!-- /.modal-for Details -->
+<div class="modal fade" id="details" tabindex="-1" role="dialog" aria-labelledby="details" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+          <h2 class="modal-title custom_align" id="Heading">Customer Details</h2>
+        </div>
+        <div class="modal-body">
+          <div class="col-md-12">
+            <h3 style="font-size: 20px;color:rgb(75, 157, 54)">Customer Name:</h3>
+            <label  id="customerNameDetails" style="font-size: 20px;color:rgb(9, 148, 199)" > </label>
+          </div>
+          <div class="col-md-12">
+            <h3 style="font-size: 20px;color:rgb(75, 157, 54)">Mobile Number:</h3>
+            <label  id="mobileNumberDetails" style="font-size: 20px;color:rgb(9, 148, 199)" > </label>
+            <label  id="mobileNumberDetails2" style="font-size: 20px;color:rgb(9, 148, 199)" > </label>
+          </div>
+          <div class="col-md-12">
+            <h3 style="font-size: 20px;color:rgb(75, 157, 54)">Bank Account:</h3>
+            <label  id="bankAccountDetails" style="font-size: 20px;color:rgb(9, 148, 199)" > </label>
+            <label  id="bankAccountDetails2" style="font-size: 20px;color:rgb(9, 148, 199)" > </label>
+          </div>
+          <div class="col-md-12">
+            <h3 style="font-size: 20px;color:rgb(75, 157, 54)">Balance:</h3>
+            <label  id="balanceDetails" style="font-size: 20px;color:rgb(9, 148, 199)" > </label>
+          </div>
+          <div class="modal-footer">
+            
+          </div>         
+        </div>
+      </div>
+      <!-- /.modal-content --> 
+    </div>       <!-- /.modal-dialog --> 
+</div>  
+  
+
+<!-- /.modal-for Edit -->
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        <h4 class="modal-title custom_align" id="Heading">Edit Your Customer</h4>
+      </div>
+        <div class="modal-body">
+          <div class="form-group">
+          <input class="form-control " id="editInput" type="text" placeholder="">
+          </div>
+      </div>
+        <div class="modal-footer ">
+        <button type="button" class="btn btn-warning btn-lg" style="width: 100%;" ><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+        </div>
+    </div>
+    <!-- /.modal-content --> 
+  </div>
+      <!-- /.modal-dialog --> 
+</div>
+    
+    
+<!-- /.modal-for Delete -->   
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        <h4 class="modal-title custom_align" id="Heading">Delete this Customer</h4>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?</div>
+      </div>
+      <div class="modal-footer ">
+        <button type="button" id=""detailsButton"" onclick="deleteRow()" class="btn btn-success" > <span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
+      </div>
+    </div>
+  <!-- /.modal-content --> 
+  </div>
+  <!-- /.modal-dialog --> 
+</div>
+
+<!-- /.modal-for create new customer -->
+<div style="margin-top:px" class="modal fade" id="createCustomer" onkeypress="addCustomerByKey(event)" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        <h4 class="modal-title custom_align" id="Heading">Create New Customer</h4>
+      </div>
+        <div class="modal-body">
+          <div class="form-group">
+              <label for="sel1">Customer Name</label>
+          <input class="form-control " type="text" name="customerName" id="customerName" placeholder="Customer name">
+          </div>
+          <div class="form-group">
+              <label for="sel1">Thana</label>
+          <input class="form-control " type="text" name="thana" id="thana" placeholder="Thana">
+          </div>
+          <div class="form-group">
+            <div class="col-md-6">
+                <label for="sel1">Union</label>
+                <select class="form-control" id="unionName">
+                  <option>Union</option>
+                  <option>Rowmari</option>
+                  <option>Kortimari</option>
+                  <option>Dantvanga</option>
+                  <option>Bandaber</option>
+                  <option>Shoulmari</option>
+                  <option>Dantvanga</option>
+                </select>
+
+            </div>
+            <div class="col-md-6">
+                <label for="sel1">Village</label>
+                <input class="form-control " type="text" name="villageName" id="villageName" placeholder="Village Name">  
+            </div>
+              
+
+          </div>
+          
+          <div class="form-group">
+            <div class="col-md-6">
+              <label for="sel1">Mobile Number</label>
+              <input class="form-control " type="number" name="mobileNumber" id="mobileNumber" placeholder="Mobile Number">
+            </div>
+            <div class="col-md-6">
+                <label for="sel1">Mobile Number (optional)</label>
+                <input class="form-control " type="number" name="mobileNumber1" id="mobileNumber1" placeholder="Mobile Number (optional)">  
+            </div>
+                
+          </div >
+          
+         
+         
+          <div class="form-group">
+              <div class="col-md-6">
+                  <label for="sel1">Bank Name</label>
+                  <input class="form-control " style="width: 100%;" type="text" name="bankName" id="bankName" placeholder="Bank Name">  
+              </div>
+              <div class="col-md-6">
+                  <label for="sel1">Account Number</label>
+                  <input class="form-control " style="width: 100%;" type="text" name="bankAccount" id="bankAccount" placeholder="Account Number">  
+              </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-6" >
+              <label  for="sel1" >Bank Name (optional)</label>
+              <input class="form-control " type="text" name="bankName1" id="bankName1" placeholder="Bank Name (optional)">  
+            </div>
+            <div class="col-md-6" >
+              <label for="sel1" >Account Number (optional)</label>
+              <input class="form-control " type="text" name="bankAccount1" id="bankAccount1" placeholder="Account Number (optional)">  
+            </div>
+          </div>
+          <div class=" form-group">
+            
+              <label for="sel1">Balance</label>
+              <input class="form-control " style="width: 100%;" type="number" name="balance" id="balance" placeholder="Balance" value="0">
+              
+          </div> 
+          <div class=" form-group">
+            
+              <label for="sel1">Total purchase</label>
+              <input class="form-control " style="width: 100%;" type="number" name="purchase" id="purchase" placeholder="Total purchase" value="0">
+              
+          </div>
+          
+
+          
+      </div>    
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning btn-lg " onclick="addCustomer()" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Create Customer</button>
+      </div>
+    
+    </div>
+    <!-- /.modal-content --> 
+  </div>
+      <!-- /.modal-dialog --> 
+</div>
+
+    
+</body>
+</html>
