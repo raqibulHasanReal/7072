@@ -80,31 +80,45 @@
           <h2 class="modal-title custom_align" id="Heading">Customer Details</h2>
         </div>
         <div class="modal-body">
-          <div>
-            <h3 style="font-size: 20px;color:rgb(75, 157, 54)">Customer Name: <label  id="customerNameDetails" style="font-size: 20px;color:rgb(9, 148, 199)" > </label></h3>
-          </div>
-          <div >
-            <h3 style="font-size: 20px;color:rgb(75, 157, 54)">Mobile Number: <label  id="mobileNumberDetails" style="font-size: 20px;color:rgb(9, 148, 199)" > </label><label  id="mobileNumberDetails2" style="font-size: 20px;color:rgb(9, 148, 199)" > </label></h3>
-            
-            
-          </div>
-          <div >
-              <h3 style="font-size: 20px;color:rgb(75, 157, 54)">Customer Address:</h3>
-              <label  id="customerAdressDetails" style="font-size: 20px;color:rgb(9, 148, 199)" > </label>
-            </div>
-          <div >
-            <h3 style="font-size: 20px;color:rgb(75, 157, 54)">Bank Account:</h3>
-            <label  id="bankAccountDetails" style="font-size: 20px;color:rgb(9, 148, 199)" > </label>
-            <label  id="bankAccountDetails2" style="font-size: 20px;color:rgb(9, 148, 199)" > </label>
-          </div>
-          <div>
-            <h3 style="font-size: 40px;color:rgb(75, 157, 54)">Balance: <label  id="balanceDetails" style="font-size: 40px;color:rgb(9, 148, 199)" > </label><label  id="balanceDetailsRed" style="font-size: 40px;color:rgb(232, 12, 12)" > </label></h3>
-           
-          </div>
-
-          <div class="modal-footer">
-            
-          </div>         
+          <table class="table table-dark table-bordered" style="border:black">
+                
+            <tbody>
+              <tr>
+                <th>Name:</th>
+                <td> <label  id="customerNameDetails" > </label></td>
+              </tr>
+              <tr>
+                <th rowspan="2">Mobile Number:</th>
+                <td><label style="font-size: 20 px" id="mobileNumberDetails" > </label></td>
+              </tr>
+              <tr>
+                <td><label style="font-size: 20 px" id="mobileNumberDetails2" > </label></td>
+              </tr>
+              <tr>
+                <th rowspan="3">Address:</th>
+                <td><label style="font-size: 20 px" id="customerAdressThanaDetails" > </label></td>
+              </tr>
+              <tr>
+                <td><label style="font-size: 20 px" id="customerAdressUnionDetails" > </label></td>
+              </tr>
+              <tr>
+                <td><label style="font-size: 20 px" id="customerAdressVillageDetails" > </label></td>
+              </tr>
+              <tr>
+                <th rowspan="2">Bank Account:</th>
+                <td><label style="font-size: 20 px" id="bankAccountDetails" > </label></td>
+              </tr>
+              <tr>
+                <td><label style="font-size: 20 px" id="bankAccountDetails2" > </label></td>
+              </tr>
+              <tr>
+              <tr>
+                <th>Balance:</th>
+                <td><label  id="balanceDetails" style="font-size: 30 px;color:rgb(9, 148, 199)" > </label><label  id="balanceDetailsRed" style="font-size: 30px;color:rgb(232, 12, 12)" > </label></td>
+              </tr>
+            </tbody>
+          </table>
+  </div>
         </div>
       </div>
       <!-- /.modal-content --> 
@@ -120,12 +134,100 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
         <h4 class="modal-title custom_align" id="Heading">Edit Your Customer</h4>
       </div>
-        <div class="modal-body">
-          <div class="form-group">
-          <input class="form-control " id="editInput" type="text" placeholder="">
+
+
+
+        
+      <div class="modal-body">
+        <div class="form-group">
+            <label for="sel1">Customer Name</label>
+        <input class="form-control " type="text" name="customerNameEdit" id="customerNameEdit" >
+        </div>
+        <div class="form-group">
+            <label for="sel1">Thana</label>
+            <select class="form-control" id="thanaNameEdit">
+                <option>Thana</option>
+                <option>Rowmari</option>
+                <option>Rajibpur</option>
+            </select>
+        </div>
+        <div class="form-group">
+          <div class="col-md-6">
+              <label for="sel1">Union</label>
+              <select class="form-control" id="unionNameEdit">
+                <option>Union</option>
+                <option>Rowmari</option>
+                <option>Kortimari</option>
+                <option>Dantvanga</option>
+                <option>Bandaber</option>
+                <option>Shoulmari</option>
+                <option>Dantvanga</option>
+              </select>
+
           </div>
-      </div>
-        <div class="modal-footer ">
+          <div class="col-md-6">
+              <label for="sel1">Village</label>
+              <input class="form-control " type="text" name="villageNameEdit" id="villageNameEdit" >  
+          </div>
+            
+
+        </div>
+        
+        <div class="form-group">
+          <div class="col-md-6">
+            <label for="sel1">Mobile Number</label>
+            <input class="form-control " type="number" name="mobileNumberEdit" id="mobileNumberEdit" >
+          </div>
+          <div class="col-md-6">
+              <label for="sel1">Mobile Number (optional)</label>
+              <input class="form-control " type="number" name="mobileNumber1Edit" id="mobileNumber1Edit" >  
+          </div>
+              
+        </div >
+        
+       
+       
+        <div class="form-group">
+            <div class="col-md-6">
+                <label for="sel1">Bank Name</label>
+                <input class="form-control " style="width: 100%;" type="text" name="bankNameEdit" id="bankNameEdit" >  
+            </div>
+            <div class="col-md-6">
+                <label for="sel1">Account Number</label>
+                <input class="form-control " style="width: 100%;" type="text" name="bankAccountEdit" id="bankAccountEdit" >  
+            </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-6" >
+            <label  for="sel1" >Bank Name (optional)</label>
+            <input class="form-control " type="text" name="bankName1Edit" id="bankName1Edit" >  
+          </div>
+          <div class="col-md-6" >
+            <label for="sel1" >Account Number (optional)</label>
+            <input class="form-control " type="text" name="bankAccount1Edit" id="bankAccount1Edit" >  
+          </div>
+        </div>
+        <div class=" form-group">
+          
+            <label for="sel1">Balance</label>
+            <input class="form-control " style="width: 100%;" type="number" name="balanceEdit" id="balanceEdit" >
+            
+        </div> 
+        <div class=" form-group">
+          
+            <label for="sel1">Total purchase</label>
+            <input class="form-control " style="width: 100%;" type="number" name="purchaseEdit" id="purchaseEdit">
+            
+        </div>
+                
+    </div> 
+        
+      
+      
+      
+      
+      
+      <div class="modal-footer ">
         <button type="button" class="btn btn-warning btn-lg" style="width: 100%;" ><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
         </div>
     </div>
