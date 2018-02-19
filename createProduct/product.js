@@ -1,12 +1,12 @@
 $(document).ready(function(){
-    $("#mytable #checkall").click(function () {
-            if ($("#mytable #checkall").is(':checked')) {
-                $("#mytable input[type=checkbox]").each(function () {
+    $("#productTable #checkall").click(function () {
+            if ($("#productTable #checkall").is(':checked')) {
+                $("#productTable input[type=checkbox]").each(function () {
                     $(this).prop("checked", true);
                 });
     
             } else {
-                $("#mytable input[type=checkbox]").each(function () {
+                $("#productTable input[type=checkbox]").each(function () {
                     $(this).prop("checked", false);
                 });
             }
@@ -17,7 +17,7 @@ $(document).ready(function(){
 
 function addProduct() 
 {
-    var counter = counter+1;
+    counter = counter+1;
     var product = document.getElementById('productName').value;
     var category = document.getElementById('categoryName').value;
     var unit = document.getElementById('unitName').value;
@@ -30,7 +30,7 @@ function addProduct()
     }
     else
     {
-        var table = $('#mytable').DataTable();
+        var table = $('#productTable').DataTable();
         table.row.add( [ counter, product, category, unit,editButton, deleteButton ] ).draw();  
         $('#productName').val('')
         $('#categoryName').val('')
@@ -46,7 +46,7 @@ function addProductByKey(e)
     var keycode = (e.keyCode ? e.keyCode : e.which);
     if (keycode == '13') 
     {
-        var counter = counter+1;
+        counter = counter+1;
         var product = document.getElementById('productName').value;
         var category = document.getElementById('categoryName').value;
         var unit = document.getElementById('unitName').value; 
@@ -59,7 +59,7 @@ function addProductByKey(e)
         }
         else
         {
-            var table = $('#mytable').DataTable();
+            var table = $('#productTable').DataTable();
             table.row.add( [ counter, product, category, unit, editButton, deleteButton ] ).draw();  
             $('#productName').val('')
             $('#categoryName').val('')
@@ -72,7 +72,7 @@ function addProductByKey(e)
 
 function deleteRow()
 {
-    var table = $('#mytable').DataTable();
+    var table = $('#productTable').DataTable();
     var rows = table
     .rows()
     .remove()

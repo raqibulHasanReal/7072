@@ -13,10 +13,10 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
     <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-    <script src="javascript.js"></script>
+    <script src="cart.js"></script>
     <script>
       $(document).ready(function(){
-      $('#mytable').DataTable();
+      $('#').DataTable();
   });
     </script>
 
@@ -26,7 +26,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="col-md-12" style="margin-bottom:50%">         
+        <div class="" >         
             <div class="panel-group">
                 <div class="panel panel-default">
                     <div class="panel-body" style="margin-bottom:30px">
@@ -52,7 +52,7 @@
                         </div>
 
                         <div class="col-md-2" >
-                          <Button style="padding: 48px 23px" class="btn btn-success ">Add To Cart</Button>
+                          <Button style="padding: 48px 23px" class="btn btn-success " onclick="addToCart()">Add To Cart</Button>
                       </div>
                         <div class="col-md-2" style="">
                             <Button style="padding: 15px 20px" class="btn btn-info">print Preview</Button>
@@ -60,6 +60,47 @@
                         </div>
                     </div>
                 </div>         
+            </div>
+        </div>
+        <div class="">
+            <table id="cartTable" class="table table-bordered">
+                <thead>
+                  <tr >
+                    <th style="text-align:center">#</th> 
+                    <th style="text-align:center">Item Name</th>
+                    <th style="text-align:center">Quantity</th>
+                    <th style="text-align:center">Price</th>
+                    <th style="text-align:center">Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                
+                </tbody>
+            </table>
+        </div>
+        <div class="">
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="col-md-6">
+                        <div class="panel-body" style="margin-bottom:30px">
+                            
+                        </div>        
+                    </div>
+                    <div  class="col-md-6">
+                        <div class="panel-body" style="margin-bottom:30px">
+                            <div class="col-md-8" style="text-align:end">
+                                    <label style="font-size:25px">Total Amount <label id="totalAmount"></label></label>
+                                 
+
+                            </div>
+                            <div class="col-md-4">
+                                
+
+                            </div>
+                              
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
