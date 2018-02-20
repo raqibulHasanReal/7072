@@ -12,6 +12,8 @@ $(document).ready(function(){
  
     $('#deleteCustomer').click( function () {
         table.row('.selected').remove().draw( false );
+        counter--;
+
     } );
     $("#customerTable #checkall").click(function () {
             if ($("#customerTable #checkall").is(':checked')) {
@@ -55,6 +57,12 @@ function addCustomer()
         var editButton = '<p data-placement="top" style="text-align:center" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" id="EditButton" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p>';
         var deleteButton = '<p data-placement="top" style="text-align:center" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs"id="DeleteButton"  data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p>';
         var details = '<p  data-placement="top" style="text-align:center" data-toggle="tooltip" title="details"><button class="btn btn-primary btn-xs"  data-title="details" data-toggle="modal" data-target="#details" ><span class="glyphicon glyphicon-user"></span></button></p>'
+        var customerEntry=
+        {
+            name:customer,
+            balance:balance,
+        }
+        
         if(customer == '' || union=='Union' || village == '' || mobile == '' || thana == 'Thana')
         {
             alert('Please Check Your All Inputs..!!')
@@ -102,7 +110,8 @@ function addCustomer()
             $('#mobileNumber1').val('')
             $('#thanaName').val('')
             $('#purchase').val('0')
-            $('#balance').val('0')
+            $('#balance').val('0') 
+            
         }
 }
 

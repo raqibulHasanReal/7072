@@ -39,9 +39,15 @@ function addProduct()
     var product = document.getElementById('productName').value;
     var category = document.getElementById('categoryName').value;
     var unit = document.getElementById('unitName').value;
+    var price = document.getElementById('productPrice').value;
     var editButton = '<button class="btn btn-primary btn-xs" id="EditButton" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button>';
     var deleteButton = '<button class="btn btn-danger btn-xs"id="DeleteButton"  data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button>';
-  
+    var productEntry=
+    {
+        productName:product,
+        price:price
+
+    }
     if(product == '' || category=='Category' || unit== 'Unit')
     {
         alert('Please Check Your All Inputs..!!')
@@ -50,7 +56,7 @@ function addProduct()
     {
         counter = counter+1;
         var table = $('#productTable').DataTable();
-        table.row.add( [ counter, product, category, unit,editButton, deleteButton ] ).draw();  
+        table.row.add( [ counter, product, category, unit, price,editButton, deleteButton ] ).draw();  
         $('#productName').val('')
         $('#categoryName').val('')
         $('#unitName').val('')
