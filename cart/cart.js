@@ -26,7 +26,7 @@ function addToCart()
 
     if( customElements == '' || item == "ProductItem" || quantity == '' || price=='')
     {
-        alert('ytryty')
+        alert('entry error..!')
     }
     else
     {
@@ -38,21 +38,14 @@ function addToCart()
         table.row.add( [counter,item,quantity,price,total] ).draw();
        
         
-        document.getElementById('totalAmount').innerHTML
+        document.getElementById('totalAmount').innerHTML = getColumnTotal(4);
 
     }
-
-
-   
-
-   
-
 }
 
-
-function getColumenTotal(columnIndex)
+function getColumnTotal(columnIndex)
 {
-    var totalAmount=$('#cartTable').DataTable().column(columnIndex).data().reduce( function (a,b) {
+    var totalAmount=$('#cartTable').DataTable().column(4).data().reduce( function (a,b) {
         return a + b;
     } );
     

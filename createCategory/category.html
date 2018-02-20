@@ -16,12 +16,12 @@
     <script src="javascript.js"></script>
     <script>
           $(document).ready(function(){
-      $('#mytable').DataTable();
+      $('#categoryTable').DataTable();
   });
     </script>
 
    
-    <script src="style.js"></script>
+    <script src="category.js"></script>
     <title>Category list</title>
 </head>
 <body >
@@ -44,7 +44,7 @@
         
     <div class="col-md-12">
       <div class="table-responsive">
-        <table id="mytable" class="table table-bordred table-striped table-hover">
+        <table id="categoryTable" class="table table-bordred table-striped table-hover">
                    
           <thead>
             <th class="col-md-2">#</th>
@@ -115,7 +115,7 @@
         <div class="alert alert-danger"><span class="glyphicon glyphicon-warning-sign"></span> Are you sure you want to delete this Record?</div>
       </div>
       <div class="modal-footer ">
-        <button type="button" onclick="deleteRow()" class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
+        <button type="button" id="deleteCategory" class="btn btn-success" ><span class="glyphicon glyphicon-ok-sign"></span> Yes</button>
         <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
       </div>
     </div>
