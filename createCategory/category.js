@@ -13,9 +13,17 @@ $(document).ready(function(){
  
     $('#deleteCategory').click( function () {
         table.row('.selected').remove().draw( false );
-        counter--;
+
+        var addSerialNumber = function () {
+            var i = 1
+            $('table tr').each(function(index) {
+                $(this).find('td:nth-child(1)').html(index);
+            });
+        };  
+        addSerialNumber();
         
     } );
+    //for delete 
 
     $("#categoryTable #checkall").click(function () 
     {
@@ -38,8 +46,8 @@ function addCategory()
 {     
 
     var category = document.getElementById('categoryName').value;
-    var editButton ='<button style="text-align:center" class="btn btn-primary btn-xs" id="EditButton" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button>';
-    var deleteButton ='<button style="text-align:center" class="btn btn-danger btn-xs"id="DeleteButton"  data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button>';
+    var editButton ='<p data-placement="top" style="text-align:center" data-toggle="tooltip" title="Edit"> <button style="text-align:center" class="btn btn-primary btn-xs" id="EditButton" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p>';
+    var deleteButton ='<p data-placement="top" style="text-align:center" data-toggle="tooltip" title="Delete"><button style="text-align:center" class="btn btn-danger btn-xs"id="DeleteButton"  data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p>';
     var catgoryEntry={
         categoryName:category
     }
@@ -53,6 +61,8 @@ function addCategory()
         var table = $('#categoryTable').DataTable();
         table.row.add( [ counter, category, editButton, deleteButton ] ).draw();  
         $('#categoryName').val('')
+
+        
     }
 }    
 var counter = 0; 
