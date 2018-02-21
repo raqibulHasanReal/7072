@@ -13,15 +13,8 @@ $(document).ready(function(){
  
     $('#deleteCategory').click( function () {
         table.row('.selected').remove().draw( false );
-
-        var addSerialNumber = function () {
-            var i = 1
-            $('table tr').each(function(index) {
-                $(this).find('td:nth-child(1)').html(index);
-            });
-        };  
-        addSerialNumber();
-        
+        counter--;
+            
     } );
     //for delete 
 
@@ -40,6 +33,7 @@ $(document).ready(function(){
         });
         
         $("[data-toggle=tooltip]").tooltip();
+        
     });
        
 function addCategory()
@@ -62,6 +56,16 @@ function addCategory()
         table.row.add( [ counter, category, editButton, deleteButton ] ).draw();  
         $('#categoryName').val('')
 
+       //serial sort
+       var addSerialNumber = function () 
+       {
+           $('table tr').each(function(index) {
+               $(this).find('td:nth-child(1)').html(index);
+       
+           });
+       };  
+       addSerialNumber();
+
         
     }
 }    
@@ -74,3 +78,4 @@ function addCategoryByKey(e)
         addCategory();
     }
 }
+

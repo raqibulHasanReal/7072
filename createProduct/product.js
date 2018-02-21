@@ -15,6 +15,7 @@ $(document).ready(function(){
     $('#deleteProduct').click( function () 
     {
         table.row('.selected').remove().draw( false );
+        counter--;
     });
 
     $("#productTable #checkall").click(function () 
@@ -40,8 +41,8 @@ function addProduct()
     var category = document.getElementById('categoryName').value;
     var unit = document.getElementById('unitName').value;
     var price = document.getElementById('productPrice').value;
-    var editButton = '<button class="btn btn-primary btn-xs" id="EditButton" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button>';
-    var deleteButton = '<button class="btn btn-danger btn-xs"id="DeleteButton"  data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button>';
+    var editButton = '<p data-placement="top" style="text-align:center" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" id="EditButton" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p>';
+    var deleteButton = '<p data-placement="top" style="text-align:center" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs"id="DeleteButton"  data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p>';
     var productEntry=
     {
         productName:product,
@@ -60,7 +61,19 @@ function addProduct()
         $('#productName').val('')
         $('#categoryName').val('')
         $('#unitName').val('')
+        $('#productPrice').val('0')
+
         //$('#createProcuct').modal('hide');
+
+        var addSerialNumber = function () 
+       {
+           $('table tr').each(function(index) {
+               $(this).find('td:nth-child(1)').html(index);
+       
+           });
+       };  
+       addSerialNumber();
+       
     }
 }
     

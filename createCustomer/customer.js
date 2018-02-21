@@ -11,10 +11,10 @@ $(document).ready(function(){
     } );
  
     $('#deleteCustomer').click( function () {
-        table.row('.selected').remove().draw( false );
+        table.row('.selected').remove().draw( false ); //for row serial 
         counter--;
-
     } );
+    //for delete
     $("#customerTable #checkall").click(function () {
             if ($("#customerTable #checkall").is(':checked')) {
                 $("#customerTable input[type=checkbox]").each(function () {
@@ -111,6 +111,14 @@ function addCustomer()
             $('#thanaName').val('')
             $('#purchase').val('0')
             $('#balance').val('0') 
+            
+            var addSerialNumber = function () {     
+                var i = 1
+                $('table tr').each(function(index) {
+                    $(this).find('td:nth-child(1)').html(index);
+                });
+            };  
+            addSerialNumber();
             
         }
 }
