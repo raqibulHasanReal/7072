@@ -60,7 +60,14 @@ function addUnit()
         var table = $('#unitTable').DataTable();
         table.row.add( [ counter, unit, editButton, deleteButton ] ).draw();  
         $('#unitName').val('')
-        //$('#createProcuct').modal('hide');
+        var addSerialNumber = function () 
+        {
+            $('table tr').each(function(index) {
+                $(this).find('td:nth-child(1)').html(index);
+        
+            });
+        };  
+        addSerialNumber();
     }
 }
 
