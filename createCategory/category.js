@@ -79,3 +79,46 @@ function addCategoryByKey(e)
     }
 }
 
+
+$(document).ready(function() {
+    $('#categoryTable').DataTable({
+        ajax: {
+            type: "GET",
+            url: "../api/Category/getall",
+            dataSrc: ""
+        },
+        columns: [{
+                data: "categoryName"
+            },
+            {
+                data: "Id",
+                render: function(data, type, category) {
+                    return "<a href='/api/category/Update/" + category.Id + "'>" + editButton + "</a>"
+                }
+            },
+            {
+                data: "Id",
+                render: function(data) {
+                    return deleteButton
+                }
+            }
+        ]
+
+    });
+});
+
+
+//--------DataTable-------//
+$(document).ready(function() {
+    var table = $('#categoryTable').DataTable();
+    //--------DataTable---End-------//
+
+    $('#categoryTable tbody').on('click', 'tr', function() {
+        if ($(this).hasClass('selected')) {
+            $(this).removeClass('selected');
+        } else {
+            table.$('tr.selected').removeClass('selected');
+            $(this).addClass('selected');
+        }
+    });
+

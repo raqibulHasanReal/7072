@@ -23,8 +23,9 @@ function addToCart()
     mobile = document.getElementById('mobileCart').value;
     quantity = document.getElementById('quantityCart').value;
     price = document.getElementById('priceCart').value;
+    calendar = document.getElementById('calendar').value;
 
-    if( customElements == '' || item == "ProductItem" || quantity == '' || price=='')
+    if( calendar == ''|| customer == '' || item == "ProductItem" || quantity == '' || price=='')
     {
         alert('entry error..!')
     }
@@ -39,7 +40,10 @@ function addToCart()
        
         
         document.getElementById('totalAmount').innerHTML = getColumnTotal(4);
-
+        document.getElementById('nameCart').innerHTML = customer;
+        document.getElementById('balanceCart').innerHTML = calendar;
+        $('#quantityCart').val('')
+        $('#priceCart').val('')
     }
 }
 
@@ -51,3 +55,5 @@ function getColumnTotal(columnIndex)
     
     return totalAmount;
 }
+
+
