@@ -31,6 +31,7 @@
       <div style="font-size: 20px" class="panel-heading">Customer Control Panel</div>
         <div class="panel-body" style="margin-bottom:0em">
           <button style=" margin-bottom:50px" class="btn pull-right btn-success "  type="button" data-title="Edit" data-toggle="modal" data-target="#createVendor" >Create a new Vendor</button>
+          
         </div>
     </div>
       </div>
@@ -41,9 +42,10 @@
                    
           <thead>
             <th class="col-md-1">#</th>
-            <th class="col-md-4">Vendor Name</th>
+            <th class="col-md-3">Vendor Name</th>
             <th class="col-md-3">Address</th>
             <th class="col-md-2">Balance</th>
+            <th class="col-md-1">Details</th>
             <th class="col-md-1">Edit</th>
             <th class="col-md-1">Delete</th>
           </thead>
@@ -59,12 +61,52 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-        <h4 class="modal-title custom_align" id="Heading">Edit Your Product</h4>
+        <h4 class="modal-title custom_align" id="Heading">Edit Vendor</h4>
       </div>
         <div class="modal-body">
           <div class="form-group">
-          <input class="form-control " id="editInput" type="text" placeholder="">
+            <label for="sel1">Vendor Name:</label>
+        <input class="form-control " type="text" name="editVendorName" id="editVendorName" >
+        </div>
+        <div class="form-group">
+            <label for="sel1">Adress:</label>
+            <input class="form-control " type="text" name="editVendorAddress" id="editVendorAddress" >
+        </div>
+        <div class="form-group">
+          <div class="col-md-6">
+            <label for="sel1">Mobile Number</label>
+            <input class="form-control " type="number" name="editVendorMobileNumber" id="editVendorMobileNumber" placeholder="Mobile Number">
           </div>
+          <div class="col-md-6">
+              <label for="sel1">Mobile Number (optional)</label>
+              <input class="form-control " type="number" name="editVendorMobileNumberOp" id="editVendorMobileNumberOp" placeholder="Mobile Number (optional)">  
+          </div>                
+        </div >
+        <div class="form-group">
+          <div class="col-md-6">
+              <label for="sel1">Bank Name</label>
+              <input class="form-control " style="width: 100%;" type="text" name="editBankName1" id="editBankName1" >  
+          </div>
+          <div class="col-md-6">
+              <label for="sel1">Account Number</label>
+              <input class="form-control " style="width: 100%;" type="text" name="editBankAccount1" id="editBankAccount1" >  
+          </div>
+      </div>
+      <div class="form-group">
+        <div class="col-md-6" >
+          <label  for="sel1" >Bank Name (optional)</label>
+          <input class="form-control " type="text" name="editBankName2" id="editBankName2" >  
+        </div>
+        <div class="col-md-6" >
+          <label for="sel1" >Account Number (optional)</label>
+          <input class="form-control " type="text" name="editBankAccount2" id="editBankAccount2" >  
+        </div>
+      </div>
+        <div class="form-group">
+          <label for="sel1">Balance:</label>
+        <input class="form-control " type="number" name="editVendorBalance" id="editVendorBalance">
+        </div>
+          
       </div>
         <div class="modal-footer ">
         <button type="button" class="btn btn-warning btn-lg" style="width: 100%;" ><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
@@ -74,6 +116,52 @@
   </div>
       <!-- /.modal-dialog --> 
 </div>
+<div class="modal fade" id="details" tabindex="-1" role="dialog" aria-labelledby="details" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+        <h2 class="modal-title custom_align" id="Heading">Customer Details</h2>
+      </div>
+      <div class="modal-body">
+        <table class="table table-dark table-bordered" style="border:black">
+              
+          <tbody>
+            <tr>
+              <th>Name:</th>
+              <td> <label  id="vendorNameDetails" > </label></td>
+            </tr>
+            <tr>
+              <th rowspan="2">Mobile Number:</th>
+              <td><label style="font-size: 20 px" id="vendorMobileNumberDetails" > </label></td>
+            </tr>
+            <tr>
+              <td><label style="font-size: 20 px" id="vendormobileNumberDetails2" > </label></td>
+            </tr>
+           
+            <tr>
+              <th>Address:</th>
+              <td><label style="font-size: 20 px" id="vendorAdressDetails" > </label></td>
+            </tr>     
+            <tr>
+              <th rowspan="2">Bank Account:</th>
+              <td><label style="font-size: 20 px" id="vendorBankAccountDetails" > </label></td>
+            </tr>
+            <tr>
+              <td><label style="font-size: 20 px" id="vendorBankAccountDetails2" > </label></td>
+            </tr>
+            
+            <tr>
+              <th>Balance:</th>
+              <td><label  id="vendorBalanceDetails" style="font-size: 30px;color:rgb(9, 148, 199)" > </label><label  id="vendoeBalanceDetailsRed" style="font-size: 30px;color:rgb(232, 12, 12)" > </label></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+    </div>
+    <!-- /.modal-content --> 
+  </div> 
     
     
 <!-- /.modal-for Delete -->   
@@ -97,6 +185,7 @@
   <!-- /.modal-dialog --> 
 </div>
 
+
 <!-- /.modal-for create new vendor -->
 <div style="margin-top:px" class="modal fade" id="createVendor" onkeypress="addProductByKey(event)" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
   <div class="modal-dialog">
@@ -112,26 +201,39 @@
           </div>
           <div class="form-group">
               <label for="sel1">Adress:</label>
-              <input class="form-control " type="text" name="Address" id="Address" placeholder="Address">
+              <input class="form-control " type="text" name="vendorAddress" id="vendorAddress" placeholder="Address">
           </div>
+          
+          <div class="form-group">
+            <div class="col-md-6">
+              <label for="sel1">Mobile Number</label>
+              <input class="form-control " type="number" name="vendorMobileNumber" id="vendorMobileNumber" placeholder="Mobile Number">
+            </div>
+            <div class="col-md-6">
+                <label for="sel1">Mobile Number (optional)</label>
+                <input class="form-control " type="number" name="editVendorMobileNumberOp" id="editVendorMobileNumberOp" placeholder="Mobile Number (optional)">  
+            </div>                
+          </div >
+
           <div class="form-group">
             <div class="col-md-6">
                 <label for="sel1">Bank Name</label>
-                <input class="form-control " style="width: 100%;" type="text" name="bankNameEdit" id="bankNameEdit" >  
+                <input class="form-control " style="width: 100%;" type="text" name="vendorBankName1" id="vendorBankName1" placeholder="Bank Name" >  
             </div>
             <div class="col-md-6">
                 <label for="sel1">Account Number</label>
-                <input class="form-control " style="width: 100%;" type="text" name="bankAccountEdit" id="bankAccountEdit" >  
+                <input class="form-control " style="width: 100%;" type="text" name="vendorBankAccount1" id="vendorBankAccount1" placeholder="Account Number" >  
             </div>
         </div>
+        
         <div class="form-group">
           <div class="col-md-6" >
             <label  for="sel1" >Bank Name (optional)</label>
-            <input class="form-control " type="text" name="bankName1Edit" id="bankName1Edit" >  
+            <input class="form-control " type="text" name="vendorBankName2" id="vendorBankName2" >  
           </div>
           <div class="col-md-6" >
             <label for="sel1" >Account Number (optional)</label>
-            <input class="form-control " type="text" name="bankAccount1Edit" id="bankAccount1Edit" >  
+            <input class="form-control " type="text" name="vendorBankAccount2" id="vendorBankAccount2" >  
           </div>
         </div>
           <div class="form-group">

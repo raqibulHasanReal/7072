@@ -1,7 +1,7 @@
 $(document).ready(function(){
-    var table = $('#productTable').DataTable();
+    var table = $('#vendorTable').DataTable();
  
-    $('#productTable tbody').on( 'click', 'tr', function () 
+    $('#vendorTable tbody').on( 'click', 'tr', function () 
     {
         if ( $(this).hasClass('selected') ) {
             $(this).removeClass('selected');
@@ -18,15 +18,15 @@ $(document).ready(function(){
         counter--;
     });
 
-    $("#productTable #checkall").click(function () 
+    $("#vendorTable #checkall").click(function () 
     {
-        if ($("#productTable #checkall").is(':checked')) {
-            $("#productTable input[type=checkbox]").each(function () {
+        if ($("#vendorTable #checkall").is(':checked')) {
+            $("#vendorTable input[type=checkbox]").each(function () {
                 $(this).prop("checked", true);
            });
     
         } else {
-            $("#productTable input[type=checkbox]").each(function () {
+            $("#vendorTable input[type=checkbox]").each(function () {
                 $(this).prop("checked", false);
             });
         }
@@ -37,31 +37,71 @@ $(document).ready(function(){
 
 function addProduct() 
 {   
-    var product = document.getElementById('productName').value;
-    var category = document.getElementById('categoryName').value;
-    var unit = document.getElementById('unitName').value;
-    var price = document.getElementById('productPrice').value;
+    var vendorName = document.getElementById('vendorName').value;
+    var address = document.getElementById('vendorAddress').value;
+    var bank= document.getElementById('vendorBankName1').value;
+    var account = document.getElementById('vendorBankAccount1').value;
+    var bankOptional = document.getElementById('vendorBankName2').value;
+    var accountOptional = document.getElementById('vendorBankAccount2').value;
+    
+    
+    var balance = document.getElementById('vendorBalance').value;
+    var mobile = document.getElementById('vendorMobileNumber').value;
+    var mobileOptional = document.getElementById('editVendorMobileNumberOp').value;
+    var accountButton = '<p  data-placement="top" style="text-align:center" data-toggle="tooltip" title="details"><button class="btn btn-primary btn-xs"  data-title="details" data-toggle="modal" data-target="#details" ><span class="glyphicon glyphicon-user"></span></button></p>';
     var editButton = '<p data-placement="top" style="text-align:center" data-toggle="tooltip" title="Edit"><button class="btn btn-primary btn-xs" id="EditButton" data-title="Edit" data-toggle="modal" data-target="#edit" ><span class="glyphicon glyphicon-pencil"></span></button></p>';
     var deleteButton = '<p data-placement="top" style="text-align:center" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs"id="DeleteButton"  data-title="Delete" data-toggle="modal" data-target="#delete" ><span class="glyphicon glyphicon-trash"></span></button></p>';
-    var productEntry=
+    
+    var bankName = 'Bank Name : '+bank +'&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp AC : '+account;
+    var bankNameOp = 'Bank Name : '+bankOptional+'&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp AC :'+accountOptional;
+
+    var vendorEntry=
     {
-        productName:product,
-        price:price
+        
 
     }
-    if(product == '' || category=='Category' || unit== 'Unit')
+    if( vendorName == '' || address=='' || bank== '')
     {
         alert('Please Check Your All Inputs..!!')
     }
     else
     {
         counter = counter+1;
-        var table = $('#productTable').DataTable();
-        table.row.add( [ counter, product, category, unit, price,editButton, deleteButton ] ).draw();  
-        $('#productName').val('')
-        $('#categoryName').val('')
-        $('#unitName').val('')
-        $('#productPrice').val('0')
+        var table = $('#vendorTable').DataTable();
+        table.row.add( [ counter,vendorName, address,balance,accountButton,editButton, deleteButton ] ).draw(); 
+
+        if(bank != '' || account!='')
+            {
+                document.getElementById('vendorBankAccountDetails').innerHTML = bankName;
+            }
+            if(bankOptional != '' || accountOptional != '')
+            {
+                document.getElementById('vendorBankAccountDetails2').innerHTML = bankNameOp;
+            }
+            if(balance >= 0)
+            {
+                document.getElementById('vendoeBalanceDetailsRed').innerHTML =''
+                document.getElementById('vendorBalanceDetails').innerHTML = balance;
+            }
+            else
+            {
+                document.getElementById('vendorBalanceDetails').innerHTML=''
+                document.getElementById('vendoeBalanceDetailsRed').innerHTML = balance;
+            }
+            document.getElementById('vendorNameDetails').innerHTML = vendorName;
+            document.getElementById('vendorMobileNumberDetails').innerHTML = mobile;
+            document.getElementById('vendormobileNumberDetails2').innerHTML = mobileOptional;
+            document.getElementById('vendorAdressDetails').innerHTML = address;
+            
+
+
+        $('#vendorName').val('')
+        $('#vendorAddress').val('')
+        $('#vendorBankName2').val('')
+        $('#vendorBankAccount2').val('')
+        $('#vendorBankName1').val('')
+        $('#vendorBankAccount1').val('')
+        $('#vendorBalance').val('0')
 
         //$('#createProcuct').modal('hide');
 
