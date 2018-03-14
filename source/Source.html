@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="Source.js"></script>
+    <title>Source</title>
+</head>
+
+<body>
+    <div class="container">
+        
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="col-md-6">
+                            <button onclick="showIncome()" style="font-size: 20px;padding: 15px;width:100%;" class="btn btn-success" type="button" data-title="Income">Income</button>
+                        </div>
+                        <div class="col-md-6">
+                            <button onclick="showexpence()" style="font-size: 20px; padding: 15px;width:100%;" class="btn btn-danger" type="button" data-title="Expence">Expence</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <div id="income" onkeypress="addIncomeSourceByKey(event)">
+            <div class="col-md-4 real-no-pad pad-right">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="entry" > 
+                            <div class="right" >
+                                <div class="formBox">
+                                    
+                                    <p>Income source</p>
+                                    <input type="text" id="sourceName" placeholder="Source Name">
+                                    <p>Calander</p>
+                                    <input type="date" id="calender" name="">
+                                    <button onclick="addIncomeSource()">SAVE</button>                                                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8 real-no-pad pad-left">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h3 style="text-align:center">Income Source List</h3>
+                        <table id="incomeTable" class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th id="serial" style="text-align:center">#</th>
+                                    <th id="incomeSource" style="text-align:center">Income Source</th>
+                                    <th id="incomeDate" style="text-align:center">Date</th>
+                                    <th id="incomeEdit" style="text-align:center">Edit</th>
+                                    <th id="incomeDelete" style="text-align:center">Delete</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="expence" style="display:none;" onkeypress="addExpenceSourceByKey(event)">
+            <div class="col-md-4 real-no-pad pad-right">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="entry"> 
+                            <div class="right">
+                                <div class="formBox">
+                                    
+                                    <p>Expence source</p>
+                                    <input type="text" id="expenceName" placeholder=" Expence Name">
+                                    <p>Calander</p>
+                                    <input type="date" id="calenderExpence" name="">
+                                    <button onclick="addExpenceSource()">SAVE</button>                                                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="col-md-8 real-no-pad pad-left">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h3 style="text-align:center">Expence Source List</h3>
+                        <table id="expenceTable" class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th id="serial" style="text-align:center">#</th>
+                                    <th id="expenceName" style="text-align:center">Expence Source</th>
+                                    <th id="expenceDate" style="text-align:center">Date</th>
+                                    <th  style="text-align:center">Edit</th>
+                                    <th  style="text-align:center">Delete</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </div>  
+</body>
+
+</html>
