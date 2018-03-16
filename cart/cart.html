@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,82 +19,90 @@
     <script src="https://cdn.datatables.net/select/1.2.5/js/dataTables.select.min.js"></script>
     <script src="cart.js"></script>
     <script>
-      $(document).(function(){
-      $('#cartTable').DataTable();
-  });
+        $(document).ready(function () {
+            $('#cartTable').DataTable();
+        });
     </script>
 
-   
+
     <script src="cart.js"></script>
     <title>Cart</title>
 </head>
+
 <body>
     <div class="container">
-        <div class="" >         
+        <div class="">
             <div class="panel-group">
                 <div class="panel panel-default">
                     <div class="panel-body" style="margin-bottom:30px">
                         <div class="col-md-2">
                             <label for="sel1">Customer Name </label>
-                            <input class="form-control" type="text" name="customerNamecart" id="customerNamecart" placeholder="Customer name"><br>
+                            <input class="form-control" type="text" name="customerNamecart" id="customerNamecart" placeholder="Customer name">
+                            <br>
                             <label for="sel1">Mobile Number </label>
                             <input class="form-control " type="number" name="mobileCart" id="mobileCart" placeholder="Mobile Number">
-                        </div>                          
+                        </div>
                         <div class="col-md-2">
                             <label for="sel1">Product Item </label>
                             <select class="form-control" id="productCart">
-                            <option>Product Item</option>
-                            </select><br>
+                                <option>Product Item</option>
+                            </select>
+                            <br>
                             <label for="sel1">Calender </label>
-                            <input class="form-control" type="date" name="calendar" id="calendar">
+                            <input class="form-control" type="date" name="calendar" id="calendar"> 
                         </div>
                         <div class="col-md-2">
                             <label for="sel1">Quantity </label>
                             <input class="form-control " type="number" name="quantityCart" id="quantityCart" placeholder="Quantity">
                         </div>
-                        <div class="col-md-2"> 
+                        <div class="col-md-2">
                             <label for="sel1">Price </label>
-                            <input class="form-control " type="number" name="priceCart" id="priceCart" placeholder="Price">                            
+                            <input class="form-control " type="number" name="priceCart" id="priceCart" placeholder="Price">
                         </div>
 
-                        <div class="col-md-2" >
-                          <Button style="padding: 48px 23px" class="btn btn-success " onclick="addToCart()">Add To Cart</Button>
-                      </div>
                         <div class="col-md-2">
-                            
+                            <Button style="padding: 48px 23px" class="btn btn-success " onclick="addToCart()">Add To Cart</Button>
+                        </div>
+                        <div class="col-md-2">
+
                             <Button style="padding: 48px 48px;bottom:100%" class="btn  btn-info ">Print</Button>
                         </div>
                     </div>
-                </div>         
+                </div>
             </div>
         </div>
         <div class="">
             <table id="cartTable" class="table table-bordered">
                 <thead>
-                  <tr >
-                    <th id="serial" style="text-align:center">#</th> 
-                    <th id="item" style="text-align:center">Item Name</th>
-                    <th id="quantity" style="text-align:center">Quantity</th>
-                    <th  id="price" style="text-align:center">Price</th>
-                    <th id="total" style="text-align:center">Total</th>
-                  </tr>
+                    <tr>
+                        <th id="serial" style="text-align:center">#</th>
+                        <th id="item" style="text-align:center">Item Name</th>
+                        <th id="quantity" style="text-align:center">Quantity</th>
+                        <th id="price" style="text-align:center">Price</th>
+                        <th id="total" style="text-align:center">Total</th>
+                    </tr>
                 </thead>
                 <tbody>
-                
+
                 </tbody>
             </table>
         </div>
         <div class="panel-group">
             <div class="panel panel-default">
-                <div class="panel-body" style="text-align:center">             
-                        &nbsp
+                <div class="panel-body" style="text-align:center">
+                    &nbsp
                     <div class="">
                         <div class="col-md-6">
-                            <div  class="panel-group">
+                            <div class="panel-group">
                                 <div class="panel panel-default">
-                                    <div class="panel-body" style="text-align:left;font-size:25px; height: 100px">
-                                        <label style="font-size:25px"> Name: <label id="nameCart"></label></label><br>
-                                        <label style="font-size:25px"> Balance: <label id="balanceCart"></label></label>
+                                    <div class="panel-body" style="text-align:left;font-size:25px; height: 150px">
+                                        <label style="font-size:25px"> Name:
+                                            <label id="nameCart"></label>
+                                        </label>
+                                        <br>
+                                        <label style="font-size:25px"> Balance:
+                                            <label id="balanceCart"></label>
+                                        </label>
                                     </div>
                                 </div>
                             </div>
@@ -101,20 +110,44 @@
                         <div class="col-md-6">
                             <div class="panel-group">
                                 <div class="panel panel-default">
-                                    <div class="panel-body" style="height: 100px ">
-                                        <div class="col-md-2">                            
-                                        </div>
-                                        <div class="col-md-10" style="">                             
-                                            <label style="font-size:25px"> Total Amount: <label id="totalAmount"></label></label>
-                                        </div>
+                                    <div class="panel-body" style="height: 150px ">
+                                        <table style="width:100%">
+                                            <tr>
+                                                <td>
+                                                    <label style="font-size:25px"> Total Amount: </label>
+                                                </td>
+                                                <td>
+                                                    <label style="font-size:25px" id="totalAmount"></label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label style="font-size:25px" for="sel1">Payment: </label>
+                                                </td>
+                                                <td>
+                                                    <div class="col-md-6 col-md-offset-3">
+                                                        <input oninput="calculate()" style="width:150px;font-size:25px" class="form-control" type="text" name="payamount" id="payamount">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label style="font-size:25px" for="sel1">Due: </label>
+                                                </td>
+                                                <td>
+                                                    <label style="font-size:25px" id="totalDue"></label>
+                                                </td>
+                                            </tr>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                 </div> 
-            </div>            
+                </div>
+            </div>
         </div>
     </div>
 </body>
+
 </html>

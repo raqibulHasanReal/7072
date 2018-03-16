@@ -10,17 +10,10 @@
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
-    <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     
-    <script>
-          $(document).ready(function(){
-      $('#vendorTable').DataTable();
-  });
-    </script>
-
-   
+    <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+      
     <script src="vendor.js"></script>
     <title>Vendor list</title>
 </head>
@@ -31,10 +24,9 @@
       <div style="font-size: 20px" class="panel-heading">Customer Control Panel</div>
         <div class="panel-body" style="margin-bottom:0em">
           <button style=" margin-bottom:50px" class="btn pull-right btn-success "  type="button" data-title="Edit" data-toggle="modal" data-target="#createVendor" >Create a new Vendor</button>
-          
         </div>
     </div>
-      </div>
+  </div>
 	<div class="row">    
     <div class="col-md-12">
       <div class="table-responsive">
@@ -73,14 +65,8 @@
             <input class="form-control " type="text" name="editVendorAddress" id="editVendorAddress" >
         </div>
         <div class="form-group">
-          <div class="col-md-6">
             <label for="sel1">Mobile Number</label>
-            <input class="form-control " type="number" name="editVendorMobileNumber" id="editVendorMobileNumber" placeholder="Mobile Number">
-          </div>
-          <div class="col-md-6">
-              <label for="sel1">Mobile Number (optional)</label>
-              <input class="form-control " type="number" name="editVendorMobileNumberOp" id="editVendorMobileNumberOp" placeholder="Mobile Number (optional)">  
-          </div>                
+            <input class="form-control " type="number" name="editVendorMobileNumber" id="editVendorMobileNumber">               
         </div >
         <div class="form-group">
           <div class="col-md-6">
@@ -91,16 +77,6 @@
               <label for="sel1">Account Number</label>
               <input class="form-control " style="width: 100%;" type="text" name="editBankAccount1" id="editBankAccount1" >  
           </div>
-      </div>
-      <div class="form-group">
-        <div class="col-md-6" >
-          <label  for="sel1" >Bank Name (optional)</label>
-          <input class="form-control " type="text" name="editBankName2" id="editBankName2" >  
-        </div>
-        <div class="col-md-6" >
-          <label for="sel1" >Account Number (optional)</label>
-          <input class="form-control " type="text" name="editBankAccount2" id="editBankAccount2" >  
-        </div>
       </div>
         <div class="form-group">
           <label for="sel1">Balance:</label>
@@ -132,11 +108,8 @@
               <td> <label  id="vendorNameDetails" > </label></td>
             </tr>
             <tr>
-              <th rowspan="2">Mobile Number:</th>
+              <th>Mobile Number:</th>
               <td><label style="font-size: 20 px" id="vendorMobileNumberDetails" > </label></td>
-            </tr>
-            <tr>
-              <td><label style="font-size: 20 px" id="vendormobileNumberDetails2" > </label></td>
             </tr>
            
             <tr>
@@ -144,13 +117,9 @@
               <td><label style="font-size: 20 px" id="vendorAdressDetails" > </label></td>
             </tr>     
             <tr>
-              <th rowspan="2">Bank Account:</th>
+              <th>Bank Account:</th>
               <td><label style="font-size: 20 px" id="vendorBankAccountDetails" > </label></td>
-            </tr>
-            <tr>
-              <td><label style="font-size: 20 px" id="vendorBankAccountDetails2" > </label></td>
-            </tr>
-            
+            </tr>           
             <tr>
               <th>Balance:</th>
               <td><label  id="vendorBalanceDetails" style="font-size: 30px;color:rgb(9, 148, 199)" > </label><label  id="vendoeBalanceDetailsRed" style="font-size: 30px;color:rgb(232, 12, 12)" > </label></td>
@@ -205,14 +174,8 @@
           </div>
           
           <div class="form-group">
-            <div class="col-md-6">
               <label for="sel1">Mobile Number</label>
-              <input class="form-control " type="number" name="vendorMobileNumber" id="vendorMobileNumber" placeholder="Mobile Number">
-            </div>
-            <div class="col-md-6">
-                <label for="sel1">Mobile Number (optional)</label>
-                <input class="form-control " type="number" name="editVendorMobileNumberOp" id="editVendorMobileNumberOp" placeholder="Mobile Number (optional)">  
-            </div>                
+              <input class="form-control " type="number" name="vendorMobileNumber" id="vendorMobileNumber" placeholder="Mobile Number">               
           </div >
 
           <div class="form-group">
@@ -226,16 +189,6 @@
             </div>
         </div>
         
-        <div class="form-group">
-          <div class="col-md-6" >
-            <label  for="sel1" >Bank Name (optional)</label>
-            <input class="form-control " type="text" name="vendorBankName2" id="vendorBankName2" >  
-          </div>
-          <div class="col-md-6" >
-            <label for="sel1" >Account Number (optional)</label>
-            <input class="form-control " type="text" name="vendorBankAccount2" id="vendorBankAccount2" >  
-          </div>
-        </div>
           <div class="form-group">
             <label for="sel1">Balance:</label>
         <input class="form-control " type="number" name="vendorBalance" id="vendorBalance" value="0">
@@ -251,6 +204,32 @@
       <!-- /.modal-dialog --> 
 </div>
 
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+  
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+       
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+    
+  </div>
+</div>
+<script>
+  $(document).ready(function(){
+      $('#real').click(function(){
+          $('#myModal').modal();
+      });
+  });
+  </script>
     
 </body>
 </html>

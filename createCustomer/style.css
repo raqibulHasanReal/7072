@@ -2,3 +2,15 @@ createButton{
     margin-bottom: 20px;
 
 }
+.modalhead{
+    text-align: center;
+    background-color: rgb(13, 206, 187);
+}
+.pad-left
+{
+    padding-left: 0;
+}
+.pad-right
+{
+    padding-right: 0;
+}
