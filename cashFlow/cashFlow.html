@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="cashFlow.js"></script>
+    <title>CashFlow</title>
+    <script>
+        $(document).ready(function(){
+        $('#incomeTable').DataTable();
+        $('#expenceTable').DataTable();
+    });
+      </script>
+</head>
+<body>
+    <div class="container">
+        <div class="col-md-12 no-pad">
+            <input class="form-group"type="date" id="calender">
+        </div>
+        
+        <div class="col-md-12 no-pad ">
+            <div class="col-md-6 no-pad margin">
+                <div class="col-md-12 income no-pad">
+                    <p>Income</p>
+                </div>
+                
+                <div class="col-md-12 margin border no-pad " >
+
+                    <div class="col-md-12 no-pad margin">
+                        <div class="col-md-4" >
+                            <input style="text-align:center" class="form-control"type="number" id="incomeAmount" placeholder="Amount">
+                        </div>
+
+                        <div class="col-md-4">
+                            <select class="form-control" id="incomeSources">
+                                <option>Source</option>
+                                <option>KG</option>
+                                <option>GRAM</option>
+                                <option>BOSTA</option>
+                            </select>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <button class="btn btn-success" onclick="addIncome()">Save</button>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 margin">
+                        <table id="incomeTable" class="table table-striped table-bordered table-hover table-condensed">            
+                            <thead>
+                                <th class="col-md-1">#</th>
+                                <th class="col-md-3">Income Source</th>
+                                <th class="col-md-3">Date</th>                              
+                                <th class="col-md-3">amount</th>
+                                <th class="col-md-1">Edit</th>
+                                <th class="col-md-1">Delete</th>
+                            </thead>
+                        </table>  
+                    </div>
+
+                </div>
+
+                <div class="col-md-12 no-pad margin border borderHight ">
+                    <table style="width:100%">
+                        <tr >
+                            <td  style="text-align:center">
+                                <label class="margin" style="font-size:25px"> Total Income: </label>
+                            </td>
+                            <td >
+                                <label class="margin" style="font-size:25px" id="totalIncome"></label>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-md-6 no-pad margin">
+                <div class="col-md-12 expence no-pad">
+                    <P>Expence</P>
+                </div>
+                <div class="col-md-12 margin border " >
+                    
+                    <div class="col-md-12 no-pad margin">
+                        <div class="col-md-4">
+                            <input  style="text-align:center" class="form-control"type="number" placeholder="Amount" id="expenceAmount">
+                        </div>
+        
+                        <div class="col-md-4">
+                            <select class="form-control" id="expenceSources">
+                                <option>Source</option>
+                                <option>KG</option>
+                                <option>GRAM</option>
+                                <option>BOSTA</option>
+                            </select>
+                        </div>
+                            
+                        <div class="col-md-4">
+                            <button id="expenceSave" class="btn btn-danger" onclick="addExpence()">Save</button>
+                        </div>
+                    </div>
+                    <div class="col-md-12 margin">
+                        <table id="expenceTable" class="table table-striped table-bordered table-hover table-condensed">            
+                            <thead>
+                                <th class="col-md-1">#</th>
+                                <th class="col-md-3">Expence Source</th>
+                                <th class="col-md-3">Date</th>                              
+                                <th class="col-md-3">amount</th>
+                                <th class="col-md-1">Edit</th>
+                                <th class="col-md-1">Delete</th>
+                            </thead>
+                        </table>  
+                    </div>
+                </div>
+
+                <div class="col-md-12 no-pad margin border borderHight">
+                    <table style="width:100%">
+                        <tr>
+                            <td style="text-align:center">
+                                <label class="margin" style="font-size:25px"> Total Expencee: </label>
+                            </td>
+                            <td >
+                                <label class="margin" style="font-size:25px" id="totalExpence"></label>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>                                                 
+        </div>
+
+        <div class="col-md-12 no-pad border margin borderHight">
+            
+                <table style="width:100%">
+                    <tr>
+                        <td  style="text-align:center">
+                            <label class="margin" style="font-size:35px"> Cash in hand: </label>
+                        </td>
+
+                        <td >
+                            <label class="margin" style="font-size:35px" id="totalCash"></label>
+                        </td>
+                    </tr>
+                </table>
+                      
+        </div>
+    </div>
+</body>
+</html>

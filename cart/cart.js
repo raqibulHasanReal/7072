@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    document.getElementById("print").disabled = true;
     $("#cartTable #checkall").click(function () {
         if ($("#cartTable #checkall").is(':checked')) {
             $("#cartTable input[type=checkbox]").each(function () {
@@ -19,6 +20,7 @@ function calculate() {
     payment = document.getElementById('payamount').value;
     due = (getColumnTotal(4) - payment);
     document.getElementById('totalDue').innerHTML = due;
+    document.getElementById("print").disabled = false;
 }
 
 function addToCart() {
@@ -33,6 +35,13 @@ function addToCart() {
     if (calendar == '' || customer == '' || item == "ProductItem" || quantity == '' || price == '') {
         alert('entry error..!')
     } else {
+        if(quantity <= 0 || price <= 0)
+        {
+            alert("pls input proper value..!")
+
+        }
+        else
+        {
         counter = counter + 1;
 
         total = price * quantity;
@@ -47,13 +56,15 @@ function addToCart() {
         $('#quantityCart').val('')
         $('#priceCart').val('')
         $('#payamount').val('')
-        
+        }
 
     }
 }
 
-function getColumnTotal(columnIndex) {
-    var totalAmount = $('#cartTable').DataTable().column(4).data().reduce(function (a, b) {
+function getColumnTotal(columnIndex) 
+{
+    var totalAmount = $('#cartTable').DataTable().column(4).data().reduce(function (a, b) 
+    {
         return a + b;
     });
 
